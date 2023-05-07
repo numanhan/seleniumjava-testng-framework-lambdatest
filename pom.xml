@@ -1,235 +1,305 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.kodlanir</groupId>
-  <artifactId>io.lambdatest.ecommerce</artifactId>
-  <version>1.0-SNAPSHOT</version>
+    <groupId>com.kodlanir</groupId>
+    <artifactId>io.lambdatest.ecommerce</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-  <name>io.lambdatest.ecommerce</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+    <name>io.lambdatest.ecommerce</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
 
-  <!-- maven profiles -->
-  <!--
-  mvn test –PRegression
-  mvn test –PSmoke
-  // Id yi veriyoruz.
-  -->
-  <profiles>
-    <profile>
-      <id>Regression</id>
+    <!-- maven profiles -->
+    <!--
+    mvn test –PRegression
+    mvn test –PSmoke
+    // Id yi veriyoruz.
+    -->
+    <profiles>
+        <profile>
+            <id>Regression</id>
 
-      <build>
-        <pluginManagement>
-          <plugins>
+            <build>
+                <pluginManagement>
+                    <plugins>
 
-            <plugin>
-              <artifactId>maven-surefire-plugin</artifactId>
-              <version>2.22.1</version>
-              <configuration>
-                <suiteXmlFiles>
-                  <suiteXmlFile>src/test/resources/suites/regression.xml</suiteXmlFile>
-                </suiteXmlFiles>
-              </configuration>
+                        <plugin>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>2.22.1</version>
+                            <configuration>
+                                <suiteXmlFiles>
+                                    <suiteXmlFile>src/test/resources/suites/regression.xml</suiteXmlFile>
+                                </suiteXmlFiles>
+                            </configuration>
 
-            </plugin>
+                        </plugin>
 
-          </plugins>
+                    </plugins>
+                </pluginManagement>
+            </build>
+
+        </profile>
+
+        <profile>
+            <id>Smoke</id>
+
+            <build>
+                <pluginManagement>
+                    <plugins>
+
+                        <plugin>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>2.22.1</version>
+                            <configuration>
+                                <suiteXmlFiles>
+                                    <suiteXmlFile>src/test/resources/suites/smoke.xml</suiteXmlFile>
+                                </suiteXmlFiles>
+                            </configuration>
+
+                        </plugin>
+
+                    </plugins>
+                </pluginManagement>
+            </build>
+
+        </profile>
+
+    </profiles>
+    <!-- *********************************************** -->
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <maven-surefire-plugin.version>3.0.0-M6</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+
+        <selenium.java.version>4.9.0</selenium.java.version>
+        <testng.version>7.7.1</testng.version>
+        <apache-poi.version>5.2.3</apache-poi.version>
+        <apache-poi-ooxml.version>5.2.3</apache-poi-ooxml.version>
+        <fasterxml.jackson-databind.version>2.14.2</fasterxml.jackson-databind.version>
+        <log4j-core.version>2.20.0</log4j-core.version>
+        <log4j-api.version>2.20.0</log4j-api.version>
+        <javafaker.version>1.0.2</javafaker.version>
+        <datafaker.version>1.9.0</datafaker.version>
+        <extentreports.version>5.0.9</extentreports.version>
+        <yandex.qatools.ashot.version>1.5.4</yandex.qatools.ashot.version>
+        <allure-testng.version>2.21.0</allure-testng.version>
+
+        <telegram.bot.version>6.5.0</telegram.bot.version>
+
+        <!--
+
+
+        <allure-maven.version>2.12.0</allure-maven.version>
+        <allure-environment-writer.version>1.0.0</allure-environment-writer.version>
+        <allure.cmd.download.url>
+            https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
+        </allure.cmd.download.url>
+
+        <aspectjweaver.version>1.9.19</aspectjweaver.version>
+        <owner.version>1.0.12</owner.version>
+        <assertj.version>3.24.2</assertj.version>
+        <monte-screen-recorder.version>0.7.7.0</monte-screen-recorder.version>
+        <mysql-connector-java.version>8.0.32</mysql-connector-java.version>
+        <google.zxing.version>3.5.1</google.zxing.version>
+        <lombok.version>1.18.26</lombok.version>
+        <google.guava.version>31.1-jre</google.guava.version>
+        <data.supplier.version>1.9.7</data.supplier.version>
+        <javax.mail.version>1.6.2</javax.mail.version>
+        <zip.version>1.15</zip.version>
+
+
+        -->
+
+
+        <!-- Suite XML path -->
+        <!--
+        <suite.signin.parallel>src/test/resources/suites/SignIn-parallel-methods.xml</suite.signin.parallel>
+        <suite.signin.simple>src/test/resources/suites/SignIn-simple.xml</suite.signin.simple>
+        <suite.client.parallel>src/test/resources/suites/Clients-parallel.xml</suite.client.parallel>
+        <suite.client.simple>src/test/resources/suites/Clients-simple.xml</suite.client.simple>
+        <suite.feature>src/test/resources/suites/SuiteFeatureByTag.xml</suite.feature>
+        <suite.feature.login.cms>src/test/resources/suites/SuiteFeatureLoginCMS.xml</suite.feature.login.cms>
+        -->
+
+
+    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.java.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${apache-poi.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${apache-poi-ooxml.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${fasterxml.jackson-databind.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.14.2 -->
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-api.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/net.datafaker/datafaker -->
+        <dependency>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>${datafaker.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentreports.version}</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
+        <dependency>
+            <groupId>ru.yandex.qatools.ashot</groupId>
+            <artifactId>ashot</artifactId>
+            <version>${yandex.qatools.ashot.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
+
+        <!-- telegram_bot -->
+        <!-- https://mvnrepository.com/artifact/com.github.pengrad/java-telegram-bot-api -->
+        <dependency>
+            <groupId>com.github.pengrad</groupId>
+            <artifactId>java-telegram-bot-api</artifactId>
+            <version>${telegram.bot.version}</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+
+        <!-- for log4j2.xml -->
+        <resources>
+            <resource>
+                <directory>src/test/resources/config</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+
+                    <!-- test suites without parameters -->
+
+                    <!--
+
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>src/test/resources/suites/smoke.xml</suiteXmlFile>
+                            <suiteXmlFile>src/test/resources/suites/smoke.xml</suiteXmlFile>
+                            <suiteXmlFile>src/test/resources/suites/regression.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
+
+                    -->
+
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+                <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.7.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+            </plugins>
         </pluginManagement>
-      </build>
-
-    </profile>
-
-    <profile>
-      <id>Smoke</id>
-
-      <build>
-        <pluginManagement>
-          <plugins>
-
-            <plugin>
-              <artifactId>maven-surefire-plugin</artifactId>
-              <version>2.22.1</version>
-              <configuration>
-                <suiteXmlFiles>
-                  <suiteXmlFile>src/test/resources/suites/smoke.xml</suiteXmlFile>
-                </suiteXmlFiles>
-              </configuration>
-
-            </plugin>
-
-          </plugins>
-        </pluginManagement>
-      </build>
-
-    </profile>
-
-  </profiles>
-  <!-- *********************************************** -->
-
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-  </properties>
-
-  <dependencies>
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>4.8.3</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>7.7.1</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-    <dependency>
-      <groupId>org.apache.poi</groupId>
-      <artifactId>poi</artifactId>
-      <version>5.2.3</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-    <dependency>
-      <groupId>org.apache.poi</groupId>
-      <artifactId>poi-ooxml</artifactId>
-      <version>5.2.3</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.14.2</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.14.2 -->
-
-    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>2.20.0</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>2.20.0</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
-    <dependency>
-      <groupId>com.github.javafaker</groupId>
-      <artifactId>javafaker</artifactId>
-      <version>1.0.2</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-    <dependency>
-      <groupId>com.aventstack</groupId>
-      <artifactId>extentreports</artifactId>
-      <version>5.0.9</version>
-    </dependency>
-
-
-    <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
-    <dependency>
-      <groupId>ru.yandex.qatools.ashot</groupId>
-      <artifactId>ashot</artifactId>
-      <version>1.5.4</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
-    <dependency>
-      <groupId>io.qameta.allure</groupId>
-      <artifactId>allure-testng</artifactId>
-      <version>2.21.0</version>
-    </dependency>
-
-
-
-
-  </dependencies>
-
-  <build>
-
-    <!-- for log4j2.xml -->
-    <resources>
-      <resource>
-        <directory>src/test/resources/config</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
-
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-      <plugins>
-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
-        </plugin>
-        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.0.0-M6</version>
-
-          <!-- test suites without parameters -->
-
-          <!--
-
-          <configuration>
-              <suiteXmlFiles>
-                  <suiteXmlFile>src/test/resources/suites/smoke.xml</suiteXmlFile>
-                  <suiteXmlFile>src/test/resources/suites/smoke.xml</suiteXmlFile>
-                  <suiteXmlFile>src/test/resources/suites/regression.xml</suiteXmlFile>
-              </suiteXmlFiles>
-          </configuration>
-
-          -->
-
-        </plugin>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-        </plugin>
-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+    </build>
 </project>

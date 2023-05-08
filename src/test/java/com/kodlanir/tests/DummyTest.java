@@ -1,5 +1,7 @@
 package com.kodlanir.tests;
 
+import com.github.javafaker.Faker;
+import com.kodlanir.utils.BrowserUtils;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -9,11 +11,13 @@ public class DummyTest {
 
     @BeforeMethod(onlyForGroups = "group1")
     public void beforeMethod1() {
+
         System.out.println("beforeMethod1 is executed");
     }
 
     @BeforeMethod(onlyForGroups = "group2")
     public void beforeMethod2() {
+
         System.out.println("beforeMethod2 is executed");
     }
 
@@ -24,6 +28,16 @@ public class DummyTest {
 
     @Test(groups = "group2")
     public void test2() {
+
         System.out.println("test2 is executed");
+    }
+
+    @Test
+    public void fakerKullanimi()
+    {
+        // bir sonraki ders
+
+        String randomEmail = BrowserUtils.generateAnEmail();
+        System.out.println(randomEmail);
     }
 }

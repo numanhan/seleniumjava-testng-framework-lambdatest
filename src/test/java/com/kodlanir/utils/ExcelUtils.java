@@ -84,7 +84,7 @@ public class ExcelUtils {
     }
 
 
-    public static List<List<String>> getDataAllRows(String fileName, String sheetName){
+    public static Object[][] getDataAllRows(String fileName, String sheetName){
 
         List<String> dataList = new ArrayList<>();
 
@@ -114,7 +114,18 @@ public class ExcelUtils {
             System.out.println("Error : " + ex);
         }
 
-        return rows;
+        // rows is list of list but dataprovider wants object[][] so :
+
+        Object[][] data = new Object[rows.size()][rows.get(0).size()];
+
+        // multidimensional list to object[][] array - liste -> data
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < rows.get(0).size(); j++) {
+                data[i][j] = rows.get(i).get(j);
+            }
+        }
+
+        return data;
     }
 
     public static List<String> getDataYColumn(String fileName, String sheetName, String columnName){

@@ -28,3 +28,4 @@ Konumuz TestNG ise @Test lere özel hale getirebilir miyiz?
 Bu şekilde testlere özel @BeforeMethod yapmak mümkün TestNG frameworklerde. 
 > Ama ileride Cucumber-TestNG şeklinde bir yapı oluşturduğumda bunun oradaki karşılığı bu mu olur ondan emin değilim.
 
+-------

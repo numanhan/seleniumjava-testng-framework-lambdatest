@@ -33,6 +33,10 @@
             <AppenderRef ref="Console"/>
         </logger>
 
+        <logger name="org.apache" level="error" additivity="false">
+            <AppenderRef ref="Console"/>
+        </logger>
+
 
         <Root level="trace">
             <AppenderRef ref="RollingFile"/>

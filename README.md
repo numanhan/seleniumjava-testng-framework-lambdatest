@@ -13,32 +13,32 @@
 ![javafaker Version](https://img.shields.io/badge/javafaker-1.0.2-blue.svg)
 ## Selenium Java - TestNG Test Automation Framework by Esma Yilmaz
 
-
 **SOME FEATURES IN FRAMEWORK**
 
 1. Run tests as parallel and sequential by using testng.xml suites
 2. Run tests by Maven Commands
-3. <ins>Local and Remote Driver supports</ins>
-4. <ins> Docker compose supports</ins> 
-5. Supports Maven Profiles
-6. Supports Maven and Jenkins Parameter
-7. Extent Report
-8. Allure Report
-9. <ins>Send Mail after the run test (Report information and HTML file attachment)</ins>
-10. <ins>Telegram bot
-11. <ins>Record video </ins>
-12. Logging to Console, File and Rolling File
-13. Screenshot test case and attached screenshots to Reports
-14. Read data test from Excel and Json file (xlsx, csv, json,...)
-15. Supports TestNG Listener for all critical actions
-16. Supports global variables on properties files
-17. Many configuration files for log4j and report tools
-18. Utils files for Browser, DataDriven, Reports, Screenshots, Driver
-19. Supports many software design patterns like 
+3. Supports Jenkins 
+4. <ins>Local and Remote Driver supports</ins>
+5. <ins> Docker compose supports</ins> 
+6. Supports Maven Profiles
+7. Supports Maven and Jenkins Parameter
+8. Extent Report
+9. Allure Report
+10. <ins>Send Mail after the run test (Report information and HTML file attachment)</ins>
+11. <ins>Telegram bot
+12. <ins>Record video </ins>
+13. Logging to Console, File and Rolling File
+14. Screenshot test case and attached screenshots to Reports
+15. Read data test from Excel and Json file (xlsx, csv, json,...)
+16. Supports TestNG Listener for all critical actions
+17. Supports global variables on properties files
+18. Many configuration files for log4j and report tools
+19. Utils files for BrowserUtils, DataDriven, Reports, Screenshots, Driver
+20. Supports many software design patterns like 
     1. Page Object Model
-    2. Singleton
+    2. Singleton Pattern
     3. Dependency Injection
-    4. PageFactory
+    4. PageFactory Design
     5. Thread Safe Mode for Driver and Reports
     6. Supports OOP Principles (Inheritance, Polymorphism, Abstraction, Encapsulation)
 

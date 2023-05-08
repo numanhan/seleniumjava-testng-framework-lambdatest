@@ -13,6 +13,9 @@
 ![javafaker Version](https://img.shields.io/badge/javafaker-1.0.2-blue.svg)
 ## Selenium Java - TestNG Test Automation Framework by Esma Yilmaz
 
+![lambdaecommerceui](https://user-images.githubusercontent.com/118256580/236697889-eb7fbc64-2b2b-4e80-a108-00feb7386356.JPG)
+
+
 **SOME FEATURES IN FRAMEWORK**
 
 1. Run tests as parallel and sequential by using testng.xml suites

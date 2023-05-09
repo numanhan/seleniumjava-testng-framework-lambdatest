@@ -8,9 +8,10 @@
     </listeners>
     -->
 
-    <test name="Homepage">
+    <test name="LoginTest">
         <classes>
-            <class name="com.kodlanir.pages.Base" />
+            <class name="com.kodlanir.tests.RegisterTests"></class>
+            <class name="com.kodlanir.tests.LoginTests" />
         </classes>
     </test>
 

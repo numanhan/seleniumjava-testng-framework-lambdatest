@@ -13,4 +13,7 @@ public class LoginPage extends Base{
 
     @FindBy(xpath = "//input[@value='Login']")
     public WebElement loginBtn;
+
+    @FindBy(css = "div.alert-danger")
+    public WebElement errorMessage;
 }

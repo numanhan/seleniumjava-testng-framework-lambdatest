@@ -15,22 +15,7 @@
         </classes>
     </test>
 
-    <test name="Product Search">
-        <classes>
-            <!--
-            <class name="amazon.tests.US002_ProductSearchTest" />
-            <class name="amazon.tests.US003_ProductSearchFilterTest"></class>
-            -->
-        </classes>
-    </test>
 
-    <test name="Pagination Test">
-        <classes>
-            <!--
-            <class name="amazon.tests.US004_PaginationTest" />
-            -->
-        </classes>
-    </test>
 
 </suite>
 

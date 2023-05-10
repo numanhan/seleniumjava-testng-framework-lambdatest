@@ -12,7 +12,7 @@ import java.util.List;
 public class JsonUtils {
 
     // this method is used for json file to List<HashMap>
-    public static List<HashMap<String, String>> getJsonData(String jsonFileName) { // library
+    public static String[][] getJsonData(String jsonFileName) { // library
 
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\data\\"+ jsonFileName;
 
@@ -34,7 +34,18 @@ public class JsonUtils {
         }
         // [{country=Argentina, gender=female, name=Esma}, {country=Belarus, gender=male, name=Fatih}]
         System.out.println(data);
-        return data;
+
+        String[][] dt = new String[data.size()][data.get(0).size()];
+
+        // list<hashmap> to object[][]
+        for(int i =0; i< data.size(); i++)
+        {
+            dt[i] = data.get(i).values().toArray(new String[0]);
+
+        }
+        System.out.println(dt);
+
+        return dt;
 
     }
 

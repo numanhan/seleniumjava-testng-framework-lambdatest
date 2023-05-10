@@ -1,7 +1,6 @@
 package com.kodlanir.tests;
 
 import com.github.javafaker.Faker;
-import com.kodlanir.utils.BrowserUtils;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -9,6 +8,7 @@ import org.testng.annotations.Test;
 
 public class DummyTest {
 
+    // Method- BeforeMethod Connection
     @BeforeMethod(onlyForGroups = "group1")
     public void beforeMethod1() {
 
@@ -23,6 +23,7 @@ public class DummyTest {
 
     @Test(groups = "group1")
     public void test1() {
+
         System.out.println("test1 is executed");
     }
 
@@ -31,13 +32,25 @@ public class DummyTest {
 
         System.out.println("test2 is executed");
     }
+    // Method- BeforeMethod Connection****************
 
+    // Faker Class ı kullanımı ************
     @Test
     public void fakerKullanimi()
     {
-        // bir sonraki ders
+        // https://github.com/DiUS/java-faker
 
-        String randomEmail = BrowserUtils.generateAnEmail();
-        System.out.println(randomEmail);
+        Faker faker = new Faker();
+        System.out.println(faker.address().country());
+        System.out.println(faker.currency().name());
+
+        String randomEmail ;
+
+        for (int i = 0; i < 250; i++) {
+            randomEmail = faker.address().firstName()+"@"+faker.address().lastName()+".com";
+            System.out.println(randomEmail);
+        }
+
+
     }
 }

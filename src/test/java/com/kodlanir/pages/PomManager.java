@@ -6,8 +6,9 @@ public class PomManager extends Annotations {
     private Homepage homepage;
     private RegisterPage registerPage;
     private SuccessPage successPage;
-
     private LoginPage loginPage;
+
+    private AccountPage accountPage;
 
     public Homepage getHomepage() {
 
@@ -26,5 +27,9 @@ public class PomManager extends Annotations {
 
     public LoginPage getLoginPage() {
         return loginPage == null ? new LoginPage() : loginPage;
+    }
+
+    public AccountPage getAccountPage() {
+        return accountPage == null ? new AccountPage() : accountPage;
     }
 }

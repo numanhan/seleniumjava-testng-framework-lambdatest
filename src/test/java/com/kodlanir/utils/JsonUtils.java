@@ -12,43 +12,40 @@ import java.util.List;
 public class JsonUtils {
 
     // this method is used for json file to List<HashMap>
-    public static String[][] getJsonData(String jsonFileName) { // library
+    public static Object[][] getJsonData(String jsonFileName) { // library
 
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\data\\"+ jsonFileName;
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\data\\" + jsonFileName;
 
         String jsonContent = null;
-        List<HashMap<String, String>> data = null;
+        List<HashMap<String, String>> dataList = null; // this field can be changed type of JSON***
         try {
             // convert json file to convert to json string -- commons-io
             jsonContent = FileUtils.readFileToString(new File(filePath), StandardCharsets.UTF_8);
 
             // jackson-databind
             ObjectMapper mapper = new ObjectMapper();
-            data = mapper.readValue(jsonContent,
+            dataList = mapper.readValue(jsonContent,
                     new TypeReference<List<HashMap<String, String>>>() {
                     });
-        }
-        catch(Exception ex)
-        {
-            System.out.println("Error : "+ ex);
+        } catch (Exception ex) {
+            System.out.println("Error : " + ex);
         }
         // [{country=Argentina, gender=female, name=Esma}, {country=Belarus, gender=male, name=Fatih}]
-        System.out.println(data);
+        System.out.println(dataList); // yukarıdaki gibi geliyor ama karisik, yani firstname den sonra lastname gelmiyor.
+        // field lar sirali gelmediginden Object e convert etmedim.
 
-        String[][] dt = new String[data.size()][data.get(0).size()];
 
-        // list<hashmap> to object[][]
-        for(int i =0; i< data.size(); i++)
-        {
-            dt[i] = data.get(i).values().toArray(new String[0]);
+        //Object[][] dtt = new Object[dataa.size()][dataa.get(0).size()];
+        Object[][] arrayData = new Object[dataList.size()][1];
 
-        }
-        System.out.println(dt);
-
-        return dt;
-
+        // dt = new Object[][]{{data.get(0)}, {data.get(1)}};
+        // dt = {{data.get(0)}, {data.get(1)}, {data.get(2)}, ...}
+        // dt is an array but items of array is a hashmap (hashmap is not order)
+        for (int i = 0; i < dataList.size(); i++) {
+            arrayData[i][0] = dataList.get(i);
+        }//
+        return  arrayData;
     }
-
 
 
 }

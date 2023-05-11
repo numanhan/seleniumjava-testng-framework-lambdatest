@@ -1,7 +1,7 @@
 PomManager dan Annotation lar ayrıldı. Annotations adında yeni bir class oluşturuldu.
 PomManager class ı da bu Annotations class ından miras aldı.
 
-> @BeforeMethod(value="@special") ya da @AfterMethod("@phone)
+> @BeforeMethod(value="@special") ya da @AfterMethod("@phone")
 
 şeklindeki tanımlamalarla Cucumber scenario larında JUnit ile BeforeMethod ya da AfterMethod gibi metotları, scenario lara özel hale getirebiliyorsun. 
 Konumuz TestNG ise @Test lere özel hale getirebilir miyiz?
@@ -29,3 +29,9 @@ Bu şekilde testlere özel @BeforeMethod yapmak mümkün TestNG frameworklerde.
 > Ama ileride Cucumber-TestNG şeklinde bir yapı oluşturduğumda bunun oradaki karşılığı bu mu olur ondan emin değilim.
 
 -------
+11.5.2023 Dersi için
+
+BrowserUtils içerisine mousehover yada moveToElement olayı için bir metot eklendi :
+mouseHover(element)
+
+

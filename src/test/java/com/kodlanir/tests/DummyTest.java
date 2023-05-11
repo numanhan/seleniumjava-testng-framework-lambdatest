@@ -1,8 +1,17 @@
 package com.kodlanir.tests;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
+import com.kodlanir.utils.JsonUtils;
+import org.apache.commons.io.FileUtils;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.List;
 
 // https://testng.org/doc/documentation-main.html
 
@@ -36,21 +45,20 @@ public class DummyTest {
 
     // Faker Class ı kullanımı ************
     @Test
-    public void fakerKullanimi()
-    {
+    public void fakerKullanimi() {
         // https://github.com/DiUS/java-faker
 
         Faker faker = new Faker();
         System.out.println(faker.address().country());
         System.out.println(faker.currency().name());
 
-        String randomEmail ;
+        String randomEmail;
 
         for (int i = 0; i < 250; i++) {
-            randomEmail = faker.address().firstName()+"@"+faker.address().lastName()+".com";
+            randomEmail = faker.address().firstName() + "@" + faker.address().lastName() + ".com";
             System.out.println(randomEmail);
         }
-
-
     }
-}
+
+
+ }

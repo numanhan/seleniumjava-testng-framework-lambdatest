@@ -22,8 +22,9 @@ public class LoginTests extends PomManager {
         getLoginPage().loginBtn.click();
 
         // logout test
-        Actions actions = new Actions(driver);
-        actions.moveToElement(getAccountPage().myAccountMenuLink).build().perform();
+        BrowserUtils.mouseHover(getAccountPage().myAccountMenuLink);
+        //Actions actions = new Actions(driver);
+        //actions.moveToElement(getAccountPage().myAccountMenuLink).build().perform();
 
         BrowserUtils.waitForVisibility(getAccountPage().myAccountPopup, 3);
         getAccountPage().logoutMenu.click();

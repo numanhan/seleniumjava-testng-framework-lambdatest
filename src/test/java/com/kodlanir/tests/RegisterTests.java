@@ -169,8 +169,8 @@ public class RegisterTests extends PomManager {
 
     }
 
-    @Test(dataProvider = "getAllRegisterDataFromExcel", enabled = false)
-    public void negativeTests3(String firstName, String lastName, String email, String phone, String password, String passConfirm, String warnMessg) {
+    @Test(dataProvider = "getAllRegisterDataFromJson")
+    public void negativeTest3(HashMap<String, String> input) {
 
         String url = Config.getProperty("baseUrl");
         driver.get(url);
@@ -190,17 +190,19 @@ public class RegisterTests extends PomManager {
 
         Assert.assertTrue(driver.getCurrentUrl().contains("account/register"));
 
-        getRegisterPage().firstName.sendKeys(firstName);
-        getRegisterPage().lastName.sendKeys(lastName);
-        getRegisterPage().email.sendKeys(email);
-        getRegisterPage().phone.sendKeys(phone);
-        getRegisterPage().password.sendKeys(password);
-        getRegisterPage().rePassword.sendKeys(passConfirm);
-
-
+        getRegisterPage().firstName.sendKeys(input.get("firstname"));
+        getRegisterPage().lastName.sendKeys(input.get("lastname"));
+        getRegisterPage().email.sendKeys(input.get("email"));
+        getRegisterPage().phone.sendKeys(input.get("phone"));
+        getRegisterPage().password.sendKeys(input.get("password"));
+        getRegisterPage().rePassword.sendKeys(input.get("repassword"));
     }
 
-
-
+    @DataProvider
+    public Object[][]  getAllRegisterDataFromJson()
+    {
+        Object[][] data = JsonUtils.getJsonData("registeruser.json");
+        return data;
+    }
 
 }

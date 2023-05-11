@@ -1,0 +1,58 @@
+[
+	{
+		"firstname": "",
+		"lastname": "Yilmaz",
+		"email": "ey@gmail.com",
+		"phone": "789654258",
+		"password": "12345.+",
+		"repassword": "12345.+",
+		"warning": "First Name must be between 1 and 32 characters!"
+	},
+	{
+		"firstname": "Esma",
+		"lastname": "",
+		"email": "ey@gmail.com",
+		"phone": "789654258",
+		"password": "12345.+",
+		"repassword": "12345.+",
+		"warning": "Last Name must be between 1 and 32 characters!"
+	},
+	{
+		"firstname": "Esma",
+		"lastname": "Yilmaz",
+		"email": "",
+		"phone": "789654258",
+		"password": "12345.+",
+		"repassword": "12345.+",
+		"warning": "E-Mail Address does not appear to be valid!"
+	},
+	{
+		"firstname": "Esma",
+		"lastname": "Yilmaz",
+		"email": "ey@gmail.com",
+		"phone": "",
+		"password": "12345.+",
+		"repassword": "12345.+",
+		"warning": "Telephone must be between 3 and 32 characters!"
+	},
+	{
+		"firstname": "Esma",
+		"lastname": "Yilmaz",
+		"email": "ey@gmail.com",
+		"phone": "789654258",
+		"password": "",
+		"repassword": "12345.+",
+		"warning": "Password must be between 4 and 20 characters!"
+	},
+	{
+		"firstname": "Esma",
+		"lastname": "Yilmaz",
+		"email": "ey@gmail.com",
+		"phone": "789654258",
+		"password": "12345.+",
+		"repassword": "",
+		"warning": "Password confirmation does not match password!"
+	}
+]
+
+

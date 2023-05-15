@@ -84,7 +84,7 @@ public class ExcelUtils {
     }
 
 
-    public static Object[][] getDataAllRows(String fileName, String sheetName){
+    public static Object[][] getDataAllRows(String fileName, String sheetName){ // dataprovider
 
         List<String> dataList = new ArrayList<>();
 

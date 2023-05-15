@@ -7,13 +7,11 @@ import com.kodlanir.utils.Config;
 import com.kodlanir.utils.ExcelUtils;
 import com.kodlanir.utils.JsonUtils;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
-import java.util.List;
 
 
 public class RegisterTests extends PomManager {
@@ -24,10 +22,7 @@ public class RegisterTests extends PomManager {
         driver.get(url);
 
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
-
-        Actions act = new Actions(driver);
-
-        act.moveToElement(getHomepage().myAccountMenu).build().perform();
+        BrowserUtils.mouseHover(getHomepage().myAccountMenu);
         WebElement popupMenu = getHomepage().myAccountPopupMenu;
 
         BrowserUtils.waitForVisibility(popupMenu, 5);
@@ -61,7 +56,7 @@ public class RegisterTests extends PomManager {
         // Mevcut durumun korunmasi ilkesi geregi eklenen account un silinmesi gerekiyor ama bu sitede o
         // secenek yok.
         getSuccessPage().logoutBtn.click();
-        driver.get(url);
+
     }
 
 
@@ -135,9 +130,8 @@ public class RegisterTests extends PomManager {
 
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
 
-        Actions act = new Actions(driver);
+        BrowserUtils.mouseHover(getHomepage().myAccountMenu);
 
-        act.moveToElement(getHomepage().myAccountMenu).build().perform();
         WebElement popupMenu = getHomepage().myAccountPopupMenu;
 
         BrowserUtils.waitForVisibility(popupMenu, 5);
@@ -177,9 +171,7 @@ public class RegisterTests extends PomManager {
 
         Assert.assertTrue(driver.getCurrentUrl().contains(url));
 
-        Actions act = new Actions(driver);
-
-        act.moveToElement(getHomepage().myAccountMenu).build().perform();
+        BrowserUtils.mouseHover(getHomepage().myAccountMenu);
         WebElement popupMenu = getHomepage().myAccountPopupMenu;
 
         BrowserUtils.waitForVisibility(popupMenu, 5);
@@ -199,8 +191,7 @@ public class RegisterTests extends PomManager {
     }
 
     @DataProvider
-    public Object[][]  getAllRegisterDataFromJson()
-    {
+    public Object[][] getAllRegisterDataFromJson() {
         Object[][] data = JsonUtils.getJsonData("registeruser.json");
         return data;
     }

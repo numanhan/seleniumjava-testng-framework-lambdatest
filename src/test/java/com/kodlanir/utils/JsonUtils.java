@@ -38,9 +38,9 @@ public class JsonUtils {
         //Object[][] dtt = new Object[dataa.size()][dataa.get(0).size()];
         Object[][] arrayData = new Object[dataList.size()][1];
 
-        // dt = new Object[][]{{data.get(0)}, {data.get(1)}};
-        // dt = {{data.get(0)}, {data.get(1)}, {data.get(2)}, ...}
-        // dt is an array but items of array is a hashmap (hashmap is not order)
+        // arrayData = new Object[][]{{data.get(0)}, {data.get(1)}};
+        // arrayData = {{data.get(0)}, {data.get(1)}, {data.get(2)}, ...}
+        // arrayData is an array[][] but items of array is a hashmap (hashmap is not order)
         for (int i = 0; i < dataList.size(); i++) {
             arrayData[i][0] = dataList.get(i);
         }//

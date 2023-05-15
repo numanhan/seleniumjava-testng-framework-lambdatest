@@ -17,6 +17,15 @@ public class Homepage extends Base{
     @FindBy(css = "a[href*='account/register']")
     public WebElement registerOpt;
 
+    @FindBy(xpath = "(//a[@aria-label='Shop by Category' and @href='#mz-component-1626147655'])[2]")
+    public WebElement shopByCategoryMenuLink;
+
+    @FindBy(css = "div#mz-component-1626147655")
+    public WebElement shopCategoriesLeftMenu;
+
+    @FindBy(xpath = "//span[contains(text(), 'Components')]/../..")
+    public WebElement componentCategory;
+
 
 
 

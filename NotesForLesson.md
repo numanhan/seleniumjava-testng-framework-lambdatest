@@ -34,4 +34,12 @@ Bu şekilde testlere özel @BeforeMethod yapmak mümkün TestNG frameworklerde.
 BrowserUtils içerisine mousehover yada moveToElement olayı için bir metot eklendi :
 mouseHover(element)
 
+jsonutils is updated
+
+---------
+
+flaky testler için testng de ne yapılabilir. 
+* İlk koşumda hangi testlerin fail olduğu bilgisi bir properties file da tutulabilir. Bunun için de listener.java yı kullanabilirsin. Ya da properties file yerine bir testng.xml e mi yazdırsak. Testler buradan tekrar koşturulsa. 
+* Yani en genel ayarda surefire ın olduğu yerdeki configuration da tüm testler koşacak şekilde ayarlansa. Spesifik olan testler için "profile" tanımları yapılsa. Bu "configuration" olan yerde 2.bir xml olsa. Fail olan testleri yazdığımız xml mesela.
+* 
 

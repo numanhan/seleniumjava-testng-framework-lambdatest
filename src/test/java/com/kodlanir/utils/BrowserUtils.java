@@ -304,9 +304,11 @@ public class BrowserUtils {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
     }
 
+
     public static void mouseHover(WebElement element)
     {
-        //Actions actions = new Actions(driver);
+        //        Actions actions = new Actions(Driver.getDriver());
+        //        actions.moveToElement(element).build().perform();
         new Actions(Driver.getDriver()).moveToElement(element).build().perform();
     }
 
@@ -343,8 +345,6 @@ public class BrowserUtils {
         js.executeScript("window.scrollTo(0, 0)");
 
     }
-
-
 
     public static void clickXYByJs() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();

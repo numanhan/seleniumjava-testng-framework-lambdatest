@@ -10,6 +10,8 @@ public class PomManager extends Annotations {
 
     private AccountPage accountPage;
 
+    private CategoryProductPage categoryProductPage;
+
     public Homepage getHomepage() {
 
         return homepage == null ? new Homepage() : homepage;
@@ -32,4 +34,9 @@ public class PomManager extends Annotations {
     public AccountPage getAccountPage() {
         return accountPage == null ? new AccountPage() : accountPage;
     }
+
+    public CategoryProductPage getCategoryProductPage() {
+        return categoryProductPage == null ? new CategoryProductPage() : categoryProductPage;
+    }
+
 }

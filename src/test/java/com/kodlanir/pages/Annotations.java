@@ -1,7 +1,9 @@
 package com.kodlanir.pages;
 
+import com.kodlanir.utils.Config;
 import com.kodlanir.utils.Driver;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class Annotations {
@@ -10,5 +12,11 @@ public class Annotations {
     public void beforeMethod() {
 
         driver = Driver.getDriver();
+    }
+
+    @AfterMethod(enabled = false)
+    public void afterMethod() {
+
+        driver.get(Config.getProperty("baseUrl"));
     }
 }

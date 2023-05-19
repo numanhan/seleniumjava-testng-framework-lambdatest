@@ -21,11 +21,12 @@ public class ExtentReportListener implements ITestListener { // extends OutUtils
 
         ExtentTest test = extent.createTest(result.getMethod().getMethodName()); // test name
         extentTest.set(test);
-        log.info("Testname : "+ result.getName());
+        log.info("Testname : "+ result.getName() + " started.");
     }
 
     @Override
     public void onTestSuccess(ITestResult result) { // public synchronized void
+        log.info("Testname : "+ result.getName() + " successed.");
         extentTest.get().log(Status.PASS, "Test passed successfully..");
         extentTest.get().assignCategory("Success"); // Category ekleme
 
@@ -37,18 +38,27 @@ public class ExtentReportListener implements ITestListener { // extends OutUtils
         log.info("On Test Failure : "+ result.getName());
         String testName = result.getMethod().getMethodName();
         String destFilePath = OutUtils.takeScreenShotPage(testName);
-
-        String destFullFilePath = OutUtils.takeFullScreenshot(testName);
+        // for full page ss
+        //String destFullFilePath = OutUtils.takeFullScreenshot(testName);
 
         extentTest.get().fail(result.getThrowable());
         extentTest.get().addScreenCaptureFromPath(destFilePath, testName);
-        extentTest.get().addScreenCaptureFromPath(destFullFilePath, testName);
+        //extentTest.get().addScreenCaptureFromPath(destFullFilePath, testName);
 
         extentTest.get().assignCategory("Failed"); // assignAuthor
 
     }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        log.info("On Test Skipped : "+ result.getName());
+        extentTest.get().log(Status.SKIP, "Test skipped..");
+        extentTest.get().assignCategory("Skipped");
+    }
+
     @Override
     public void onFinish(ITestContext context) {
+
         extent.flush();
     }
 

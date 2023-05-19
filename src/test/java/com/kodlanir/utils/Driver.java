@@ -13,11 +13,13 @@ import java.time.Duration;
 
 public class Driver {
 
+    public static String browserType;
     /*
     Creating the private constructor so this class' object
     is not reachable from outside
      */
     private Driver() {
+        //maven command & properties file
     }
 
     /*
@@ -53,7 +55,7 @@ public class Driver {
                 // String browserType = Config.getProperty("browser");
 
                 // Maven parametres
-                String browserType = System.getProperty("browser") == null ? Config.getProperty("browser") : System.getProperty("browser");
+                String browserType = getBrowserType();
             /*
             Depending on the browser type our switch statement will determine
             to open specific type of browser/driver
@@ -106,6 +108,12 @@ public class Driver {
             driverPool.get().quit();
             driverPool.remove();
         }
+    }
+
+    public static String getBrowserType()
+    {
+        String browserType = System.getProperty("browser") == null ? Config.getProperty("browser") : System.getProperty("browser");
+        return browserType;
     }
 }
 

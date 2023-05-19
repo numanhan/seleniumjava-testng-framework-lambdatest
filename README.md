@@ -27,17 +27,18 @@
 7. Supports Maven and Jenkins Parameter
 8. Extent Report
 9. Allure Report
-10. <ins>Send Mail after the run test (Report information and HTML file attachment)</ins>
-11. <ins>Telegram bot
-12. <ins>Record video </ins>
-13. Logging to Console, File and Rolling File
-14. Screenshot test case and attached screenshots to Reports
-15. Read data test from Excel and Json file (xlsx, csv, json,...)
-16. Supports TestNG Listener for all critical actions
-17. Supports global variables on properties files
-18. Many configuration files for log4j and report tools
-19. Utils files for BrowserUtils, DataDriven, Reports, Screenshots, Driver
-20. Supports many software design patterns like 
+10. Supports Retry Mechanism for flaky tests
+11. <ins>Send Mail after the run test (Report information and HTML file attachment)</ins>
+12. <ins>Telegram bot
+13. <ins>Record video </ins>
+14. Logging to Console, File and Rolling File
+15. Screenshot test case and attached screenshots to Reports
+16. Read data test from Excel and Json file (xlsx, csv, json,...)
+17. Supports TestNG Listener for all critical actions
+18. Supports global variables on properties files
+19. Many configuration files for log4j and report tools
+20. Utils files for BrowserUtils, DataDriven, Reports, Screenshots, Driver
+21. Supports many software design patterns like 
     1. Page Object Model
     2. Singleton Pattern
     3. Dependency Injection

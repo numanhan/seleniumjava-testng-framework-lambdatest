@@ -31,6 +31,8 @@ public class CategoryProductPage extends Base {
     @FindBy(css = "div.toast.m-3.fade")
     public List<WebElement> toastPopup;
 
+    @FindBy(css = "div.image>a div.carousel-item.active>img") //
+    public List<WebElement> productImages; // for checking page load
 
 
 

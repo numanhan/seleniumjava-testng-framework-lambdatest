@@ -21,15 +21,18 @@ public class E2ETests extends PomManager {
 
         getHomepage().componentCategory.click();
         //category-component page
-        BrowserUtils.waitForVisibility(getCategoryProductPage().categoryName, 9);
+        BrowserUtils.waitForVisibility(getCategoryProductPage().listOfCardProducts.get(0), 20);
         //kodlar
         WebElement instockChck = getCategoryProductPage().inStockCheck;
 
         BrowserUtils.clickWithJS(instockChck);
         BrowserUtils.scrollToElement(getCategoryProductPage().categoryName);
 
+        BrowserUtils.waitFor(2);
+
+        BrowserUtils.waitForVisibility(getCategoryProductPage().productImages.get(0), 20);
+
         WebElement firstElement = getCategoryProductPage().listOfCardProducts.get(0);
-        BrowserUtils.waitForVisibility(firstElement, 5);
 
         String firstTitle = getCategoryProductPage().productTitles.get(0).getText();
         String firstPrice = getCategoryProductPage().productPrices.get(0).getText();
@@ -44,7 +47,7 @@ public class E2ETests extends PomManager {
         staleElementErrorClick(getCategoryProductPage().addToCartBtns.get(0));
 
         BrowserUtils.waitForVisibility(getCategoryProductPage().toastPopup.get(0), 4);
-        System.out.println("Gordum");
+
 
         BrowserUtils.mouseHover(getCategoryProductPage().listOfCardProducts.get(2)); // thirdProduct
         WebElement thirdElement = getCategoryProductPage().listOfCardProducts.get(2);
@@ -55,7 +58,9 @@ public class E2ETests extends PomManager {
 
         List<WebElement> toastPopup = getCategoryProductPage().toastPopup;
 
-        Assert.assertTrue(toastPopup.size() > 0, "actual result : " + toastPopup.size() + "\nexpected result : != 1");
+        // TODO message niye eksik geliyor, sebebini bulamadim. Karakter siniri mi var
+        String message = "actual result : " + toastPopup.size() + " expected result : != 1";
+        Assert.assertTrue(toastPopup.size() >= 1, message);
 
 
     }

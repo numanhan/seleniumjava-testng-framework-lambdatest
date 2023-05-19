@@ -1,6 +1,7 @@
 package com.kodlanir.tests;
 
 
+import com.kodlanir.listeners.Retry;
 import com.kodlanir.pages.PomManager;
 import com.kodlanir.utils.BrowserUtils;
 import com.kodlanir.utils.Config;
@@ -60,7 +61,7 @@ public class RegisterTests extends PomManager {
     }
 
 
-    @Test(dataProvider = "getAllRegisterDataFromCsv", enabled = false)
+    @Test(dataProvider = "getAllRegisterDataFromCsv") // , enabled = false
     public void negativeTests1(String firstName, String lastName, String email, String phone, String password, String passConfirm, String warnMessg) {
         landingRegisterPage();
 
@@ -98,7 +99,7 @@ public class RegisterTests extends PomManager {
 
     }
 
-    @Test(enabled = false)
+    @Test//(enabled = false)
     public void registerWithExistingMail() {
         landingRegisterPage();
         String email = Config.getProperty("email");
@@ -122,7 +123,7 @@ public class RegisterTests extends PomManager {
 
     }
 
-    @Test(dataProvider = "getAllRegisterDataFromExcel", enabled = false)
+    @Test(dataProvider = "getAllRegisterDataFromExcel")
     public void negativeTests2(String firstName, String lastName, String email, String phone, String password, String passConfirm, String warnMessg) {
 
         String url = Config.getProperty("baseUrl");

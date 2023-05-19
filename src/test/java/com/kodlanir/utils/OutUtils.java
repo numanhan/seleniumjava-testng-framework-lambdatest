@@ -14,9 +14,11 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 
 public class OutUtils {
 
@@ -64,13 +66,14 @@ public class OutUtils {
         // ExtentReports, ExtentSparkReporter
         //String path = System.getProperty("user.dir") + "\\src\\test\\resources\\reports\\extent_index.html";
 
+        String fileName = "extent_index_report_" + System.currentTimeMillis() + ".html";
         // gives you absolute path :
-        String path = relativeToAbsolutePath("src/test/resources/reports", "extent_index.html");
+        String path = relativeToAbsolutePath("src/test/resources/reports", fileName);
 
         ExtentSparkReporter reporter = new ExtentSparkReporter(path);
 
         reporter.config().setReportName("Web Automation Test Results");
-        reporter.config().setDocumentTitle("Web Automation Test Results");
+        reporter.config().setDocumentTitle("Web Automation Test Results"); // page title
         reporter.config().setTheme(Theme.STANDARD);
 
         reporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
@@ -79,7 +82,12 @@ public class OutUtils {
 
         ExtentReports extent = new ExtentReports();
         extent.attachReporter(reporter);
-        extent.setSystemInfo("Tester", "Elektroyazilim");
+        extent.setSystemInfo("Tester", Config.getProperty("tester"));
+
+
+        String browserType = Driver.getBrowserType();
+        extent.setSystemInfo("Browser : ", browserType);
+        extent.setSystemInfo("Operating System : ", System.getProperty("os.name"));
 
         return extent;
     }

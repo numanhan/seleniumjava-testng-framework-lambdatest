@@ -1,5 +1,6 @@
 package com.kodlanir.tests;
 
+import com.kodlanir.listeners.Retry;
 import com.kodlanir.pages.PomManager;
 import com.kodlanir.utils.BrowserUtils;
 import com.kodlanir.utils.Config;
@@ -7,6 +8,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTests extends PomManager {
+
+    @Test(retryAnalyzer = Retry.class) //retryAnalyzer = Retry.class
+    public void retryDummyTest()
+    {
+        System.out.println("This is dummy test for retry");
+        Assert.assertTrue(false);
+    }
 
     @Test(dependsOnMethods = {"registerPositive"})
     public void loginPositiveTest() {
@@ -31,7 +39,7 @@ public class LoginTests extends PomManager {
         Assert.assertTrue(url.contains("logout"));
     }
 
-    @Test(enabled = false)
+    @Test // enabled = false
     public void loginNegativeTest() {
         landingLoginPage();
         getLoginPage().email.sendKeys("randomemail@gmail.com");
@@ -42,6 +50,8 @@ public class LoginTests extends PomManager {
         Assert.assertTrue(getLoginPage().errorMessage.getText().contains("No match for E-Mail Address and/or Password"));
 
     }
+
+
 
     public void landingLoginPage() {
         driver.get(Config.getProperty("baseUrl"));

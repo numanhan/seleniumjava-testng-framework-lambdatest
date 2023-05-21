@@ -1,9 +1,10 @@
 package com.kodlanir.pages;
 
+import com.kodlanir.pagesfactory.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends Base{
+public class LoginPage extends Base {
 
     @FindBy(id = "input-email")
     public WebElement email;

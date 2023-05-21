@@ -3,6 +3,8 @@ package com.kodlanir.utils;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+
+
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,8 +13,10 @@ import org.openqa.selenium.TakesScreenshot;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import tech.grasshopper.reporter.ExtentPDFReporter;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -66,7 +70,7 @@ public class OutUtils {
         // ExtentReports, ExtentSparkReporter
         //String path = System.getProperty("user.dir") + "\\src\\test\\resources\\reports\\extent_index.html";
 
-        String fileName = "extent_index_report_" + System.currentTimeMillis() + ".html";
+        String fileName = DateUtils.getCurrentDateTimeCustom("_")+ "_extent_report" +  ".html";
         // gives you absolute path :
         String path = relativeToAbsolutePath("src/test/resources/reports", fileName);
 
@@ -78,18 +82,55 @@ public class OutUtils {
 
         reporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
         reporter.config().setEncoding("UTF-8");
-        // reporter.config().setOfflineMode(true);
+
+
+        /*
+        try {
+            //reporter.loadXMLConfig("src/test/resources/config/extent-config.xml");
+            reporter.loadJSONConfig("src/test/resources/config/extent-config.json");
+        }catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+
+         */
 
         ExtentReports extent = new ExtentReports();
         extent.attachReporter(reporter);
-        extent.setSystemInfo("Tester", Config.getProperty("tester"));
+
+        // pdf - from "pdfextentreporter" dependency by tech.grasshopper
+        // TODO Extent Report PDF Option not working
+        ExtentPDFReporter pdf = new ExtentPDFReporter("src/test/resources/reports/ExtentPdfReport.pdf");
+        try {
+            pdf.loadJSONConfig(new File("src/test/resources/pdf-config.json")); // config file
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        extent.attachReporter(pdf);
+        //****
 
 
+        extent.setSystemInfo("Tester", Config.getProperty("tester"));  //devami:setSystemInfosToExtentReports()
+
+        setSystemInfosToExtentReports(extent);
+
+        return extent;
+    }
+
+    private static void setSystemInfosToExtentReports(ExtentReports extent)
+    {
         String browserType = Driver.getBrowserType();
         extent.setSystemInfo("Browser : ", browserType);
         extent.setSystemInfo("Operating System : ", System.getProperty("os.name"));
+        extent.setSystemInfo("OS Version : ", System.getProperty("os.version"));
+        extent.setSystemInfo("Java Version : ", System.getProperty("java.version"));
+        // Driver invoke olmadan once extent report memory ye alindigindan asagidaki kod null donuyor (as.kod driver.in browser versionunu return ediyor)
+        // Listener class inda baslangicta global olarak extent objesini getExtentReportObject() metodunu kullanarak
+        // olusturuyoruz. onTestStart da olustursam dedim bu sefer testlerin sonuclari dogru gelmedi
+        //TODO Son care olarak Systemdeki browser larin versiyonunu okuyacak bir kod aklima geliyor ama zaman kalmadi
+        String desktopProperty = (String) Toolkit.getDefaultToolkit().getDesktopProperty("browser.version");
 
-        return extent;
+        extent.setSystemInfo("Browser Version : ", desktopProperty);
     }
 
     private static Path createDirectory(String relativePath) { // src/test/resources/reports
@@ -114,6 +155,8 @@ public class OutUtils {
         String path = System.getProperty("user.dir") + "\\" + halfAbsolutePath + "\\" + FILE_NAME;
         return path;
     }
+
+
 
 }
 

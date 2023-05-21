@@ -2,7 +2,7 @@ package com.kodlanir.tests;
 
 
 import com.kodlanir.listeners.Retry;
-import com.kodlanir.pages.PomManager;
+import com.kodlanir.pagesfactory.PomManager;
 import com.kodlanir.utils.BrowserUtils;
 import com.kodlanir.utils.Config;
 import com.kodlanir.utils.ExcelUtils;
@@ -33,7 +33,7 @@ public class RegisterTests extends PomManager {
         BrowserUtils.waitForPageToLoad(10);
     }
 
-    @Test
+    @Test(retryAnalyzer = Retry.class, description = "This can be flaky test. Register Positive test with random email.")
     public void registerPositive() {
         landingRegisterPage();
         Assert.assertTrue(driver.getCurrentUrl().contains("account/register"));
@@ -61,7 +61,7 @@ public class RegisterTests extends PomManager {
     }
 
 
-    @Test(dataProvider = "getAllRegisterDataFromCsv") // , enabled = false
+    @Test(dataProvider = "getAllRegisterDataFromCsv", description = "Negative Register Tests. Data come from CSV file.") // , enabled = false
     public void negativeTests1(String firstName, String lastName, String email, String phone, String password, String passConfirm, String warnMessg) {
         landingRegisterPage();
 
@@ -99,7 +99,7 @@ public class RegisterTests extends PomManager {
 
     }
 
-    @Test//(enabled = false)
+    @Test(description = "Register with existing mail. Negative Test")//(enabled = false)
     public void registerWithExistingMail() {
         landingRegisterPage();
         String email = Config.getProperty("email");
@@ -123,7 +123,7 @@ public class RegisterTests extends PomManager {
 
     }
 
-    @Test(dataProvider = "getAllRegisterDataFromExcel")
+    @Test(dataProvider = "getAllRegisterDataFromExcel", description = "Negative Register Tests. Data come from Excel file.")
     public void negativeTests2(String firstName, String lastName, String email, String phone, String password, String passConfirm, String warnMessg) {
 
         String url = Config.getProperty("baseUrl");
@@ -164,7 +164,7 @@ public class RegisterTests extends PomManager {
 
     }
 
-    @Test(dataProvider = "getAllRegisterDataFromJson")
+    @Test(dataProvider = "getAllRegisterDataFromJson", description = "Negative Register Tests. Data come from Json file.")
     public void negativeTest3(HashMap<String, String> input) {
 
         String url = Config.getProperty("baseUrl");

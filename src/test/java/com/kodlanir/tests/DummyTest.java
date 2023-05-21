@@ -1,23 +1,15 @@
 package com.kodlanir.tests;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import com.kodlanir.listeners.Retry;
-import com.kodlanir.utils.JsonUtils;
-import org.apache.commons.io.FileUtils;
-import org.testng.Assert;
+import com.kodlanir.utils.DateUtils;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.io.File;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.List;
 
 // https://testng.org/doc/documentation-main.html
 
 public class DummyTest {
+
+
 
     // Method- BeforeMethod Connection
     @BeforeMethod(onlyForGroups = "group1")

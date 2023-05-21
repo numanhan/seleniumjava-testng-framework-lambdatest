@@ -1,6 +1,7 @@
 package com.kodlanir.utils;
 
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -170,11 +171,13 @@ public class BrowserUtils {
     // randomly generate an email method
     public static String generateAnEmail() {
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        Faker faker = new Faker();
         Random rnd = new Random();
         StringBuilder email = new StringBuilder();
         for (int i = 0; i < 5; i++) {
             email.append(alphabet.charAt(rnd.nextInt(alphabet.length())));
         }
+        email.append(faker.idNumber().valid());
         return email + "@gmail.com";
     }
 

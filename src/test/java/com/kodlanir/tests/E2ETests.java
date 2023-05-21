@@ -1,8 +1,9 @@
 package com.kodlanir.tests;
 
-import com.kodlanir.pages.PomManager;
+import com.kodlanir.pagesfactory.PomManager;
 import com.kodlanir.utils.BrowserUtils;
 import com.kodlanir.utils.Config;
+import io.qameta.allure.Description;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -11,8 +12,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class E2ETests extends PomManager {
-
-    @Test
+    @Test(priority = 1, description = "E2E Test from homepage to addToCart")
     public void addToCart() {
         driver.get(Config.getProperty("baseUrl"));
         getHomepage().shopByCategoryMenuLink.click();

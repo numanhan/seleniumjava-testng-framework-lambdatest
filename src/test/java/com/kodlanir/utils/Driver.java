@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.Reporter;
 
 import java.time.Duration;
 
@@ -83,15 +84,15 @@ public class Driver {
                         chromeOptions.addArguments("--headless=new");
                         driverPool.set(new ChromeDriver(chromeOptions));
                         break;
-
                 }
-
             }
         }
 
         driverPool.get().manage().window().maximize();
         driverPool.get().manage().deleteAllCookies();
         driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        // TODO Selenium Manager kullanarak Browser Version bilgisini nasil alacagini bul.
 
         /*
         Same driver instance will be returned every time we call Driver.getDriver(); method
@@ -109,6 +110,8 @@ public class Driver {
             driverPool.remove();
         }
     }
+
+
 
     public static String getBrowserType()
     {

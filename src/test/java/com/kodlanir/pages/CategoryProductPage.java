@@ -1,5 +1,6 @@
 package com.kodlanir.pages;
 
+import com.kodlanir.pagesfactory.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

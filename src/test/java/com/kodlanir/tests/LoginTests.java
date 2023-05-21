@@ -1,11 +1,12 @@
 package com.kodlanir.tests;
 
 import com.kodlanir.listeners.Retry;
-import com.kodlanir.pages.PomManager;
+import com.kodlanir.pagesfactory.PomManager;
 import com.kodlanir.utils.BrowserUtils;
 import com.kodlanir.utils.Config;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 
 public class LoginTests extends PomManager {
 
@@ -16,7 +17,7 @@ public class LoginTests extends PomManager {
         Assert.assertTrue(false);
     }
 
-    @Test(dependsOnMethods = {"registerPositive"})
+    @Test(dependsOnMethods = {"registerPositive"}, description = "Login Positive Test. This is depends on registerPositive test.")
     public void loginPositiveTest() {
 
         landingLoginPage();
@@ -39,7 +40,7 @@ public class LoginTests extends PomManager {
         Assert.assertTrue(url.contains("logout"));
     }
 
-    @Test // enabled = false
+    @Test(description = "Negative Login test by using Random email and password.") // enabled = false
     public void loginNegativeTest() {
         landingLoginPage();
         getLoginPage().email.sendKeys("randomemail@gmail.com");

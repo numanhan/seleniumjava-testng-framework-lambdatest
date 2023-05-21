@@ -1,9 +1,10 @@
 package com.kodlanir.pages;
 
+import com.kodlanir.pagesfactory.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Homepage extends Base{
+public class Homepage extends Base {
 
     @FindBy(xpath = "(//*[contains(text(),'My account')])[2]")
     public WebElement myAccountMenu;

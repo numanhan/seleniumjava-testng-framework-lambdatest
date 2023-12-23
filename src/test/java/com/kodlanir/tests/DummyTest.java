@@ -1,15 +1,19 @@
 package com.kodlanir.tests;
 
 import com.github.javafaker.Faker;
-import com.kodlanir.utils.DateUtils;
+import com.kodlanir.utils.Driver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 // https://testng.org/doc/documentation-main.html
 
 public class DummyTest {
-
-
+@Test
+public void testt()
+{
+    Driver.getDriver().get("https://google.com");
+    System.out.println(Driver.getDriver().getPageSource());
+}
 
     // Method- BeforeMethod Connection
     @BeforeMethod(onlyForGroups = "group1")
@@ -28,6 +32,8 @@ public class DummyTest {
     public void test1() {
 
         System.out.println("test1 is executed");
+
+
     }
 
     @Test(groups = "group2")

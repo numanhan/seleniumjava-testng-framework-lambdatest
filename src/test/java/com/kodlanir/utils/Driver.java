@@ -68,7 +68,7 @@ public class Driver {
 
                         break;
                     case "firefox":
-                        driverPool.set(new FirefoxDriver(firefoxOptions));
+                        driverPool.set(new FirefoxDriver()); // firefoxOptions hata veriyor
 
                         break;
                     case "edge":

@@ -1,5 +1,6 @@
 com.kodlanir
 com.kodlanir.listeners
 com.kodlanir.pages
+com.kodlanir.pagesfactory
 com.kodlanir.tests
 com.kodlanir.utils

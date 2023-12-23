@@ -4,34 +4,39 @@ package com.kodlanir.listeners;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.kodlanir.utils.Log;
 import com.kodlanir.utils.OutUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import static com.kodlanir.pagesfactory.Annotations.driver;
 
 
 public class ExtentReportListener implements ITestListener { // extends OutUtils
 
     ExtentReports extent = OutUtils.getExtentReportObject();
     ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
-    private static final Logger log = LogManager.getLogger(ExtentReportListener.class);
 
+
+    @Override
+    public void onStart(ITestContext context) {
+       context.setAttribute("WebDriver",driver);
+    }
 
     @Override
     public void onTestStart(ITestResult result) {
 
         ExtentTest test = extent.createTest(result.getMethod().getMethodName()); // test name
         extentTest.set(test);
-        log.info("Testname : " + result.getName() + " started.");
-        extentTest.get().log(Status.WARNING, "Testcase description : " + result.getMethod().getDescription() );
+        Log.info("Testname : " + result.getName() + " started.");
+        //extentTest.get().log(Status.WARNING, "Testcase description : " + result.getMethod().getDescription() );
         extentTest.get().log(Status.INFO, result.getMethod().getMethodName() + " testcase is started.");
     }
 
     @Override
     public void onTestSuccess(ITestResult result) { // public synchronized void
-        log.info("Testname : " + result.getName() + " successed.");
+        Log.info("Testname : " + result.getName() + " successed.");
         extentTest.get().log(Status.PASS, "Test passed successfully..");
         extentTest.get().assignCategory("Success"); // Category ekleme
 
@@ -40,7 +45,7 @@ public class ExtentReportListener implements ITestListener { // extends OutUtils
     @Override
     public void onTestFailure(ITestResult result) {
 
-        log.info("On Test Failure : " + result.getName());
+        Log.info("On Test Failure : " + result.getName());
         extentTest.get().log(Status.FAIL, result.getMethod().getMethodName()+ " testcase is failed");
         String testName = result.getMethod().getMethodName();
         String destFilePath = OutUtils.takeScreenShotPage(testName);
@@ -57,7 +62,7 @@ public class ExtentReportListener implements ITestListener { // extends OutUtils
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        log.info("On Test Skipped : " + result.getName());
+        Log.info("On Test Skipped : " + result.getName());
         extentTest.get().log(Status.SKIP, result.getMethod().getMethodName() + " testcase skipped..");
         extentTest.get().assignCategory("Skipped");
     }

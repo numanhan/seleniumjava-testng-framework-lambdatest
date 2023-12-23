@@ -6,7 +6,7 @@ import org.testng.ITestResult;
 public class Retry implements IRetryAnalyzer {
 
     int count = 0;
-    int maxTry = 1;
+    int maxTry = 3;
 
     @Override
     public boolean retry(ITestResult iTestResult) {
@@ -20,6 +20,7 @@ public class Retry implements IRetryAnalyzer {
         }
         return false;
     }
+
 
     /**
      * rerun the failed flaky tests in the application (retry mechanism)

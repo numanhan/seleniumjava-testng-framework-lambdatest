@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.kodlanir"},{"l":"com.kodlanir.listeners"},{"l":"com.kodlanir.pages"},{"l":"com.kodlanir.tests"},{"l":"com.kodlanir.utils"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.kodlanir"},{"l":"com.kodlanir.listeners"},{"l":"com.kodlanir.pages"},{"l":"com.kodlanir.pagesfactory"},{"l":"com.kodlanir.tests"},{"l":"com.kodlanir.utils"}]

@@ -13,26 +13,9 @@
 
         <classes>
             <class name="com.kodlanir.tests.LoginTests"/>
-        </classes>
-
-    </test>
-
-    <test name="Register Tests ">
-        <classes>
             <class name="com.kodlanir.tests.RegisterTests"></class>
         </classes>
+
     </test>
 
-
 </suite>
-
-        <!--
-
-         <test name="LoginMain" parallel="classes" >
-                <classes>
-                    <class name="testngpractise.WebLogin" />
-                    <class name="testngpractise.MainPage" />
-                </classes>
-            </test>
-
-        -->

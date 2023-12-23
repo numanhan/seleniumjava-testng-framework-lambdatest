@@ -13,7 +13,7 @@ import org.openqa.selenium.TakesScreenshot;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
-import tech.grasshopper.reporter.ExtentPDFReporter;
+
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -100,14 +100,14 @@ public class OutUtils {
 
         // pdf - from "pdfextentreporter" dependency by tech.grasshopper
         // TODO Extent Report PDF Option not working
-        ExtentPDFReporter pdf = new ExtentPDFReporter("src/test/resources/reports/ExtentPdfReport.pdf");
+ /*       ExtentPDFReporter pdf = new ExtentPDFReporter("src/test/resources/reports/ExtentPdfReport.pdf");
         try {
             pdf.loadJSONConfig(new File("src/test/resources/pdf-config.json")); // config file
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         extent.attachReporter(pdf);
-        //****
+        //*****/
 
 
         extent.setSystemInfo("Tester", Config.getProperty("tester"));  //devami:setSystemInfosToExtentReports()

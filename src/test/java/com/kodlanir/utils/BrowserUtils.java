@@ -157,6 +157,11 @@ public class BrowserUtils {
 
 
  */
+
+    /**
+     *
+     * @param targetTitle
+     */
     public static void switchToWindow(String targetTitle) {
         String origin = Driver.getDriver().getWindowHandle();
         for (String handle : Driver.getDriver().getWindowHandles()) {
